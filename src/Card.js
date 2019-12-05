@@ -1,7 +1,8 @@
 import React from 'react';
 /* tachiyon animation is used which is a part of css
-grow is the animation 
+grow is the animation for the card component
 ${props.id} generates something random that gets put into the id property from the robot.js file
+The name and email is added in dynamically 
 */
 
 const Card = ({ name, email, id }) => {
