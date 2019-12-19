@@ -1,15 +1,21 @@
 import React from 'react';
 import CardList from './CardList';
-import {robots} from './robots';
 import SearchBox from './SearchBox';
+import {robots} from './robots';
 import './App.css';
+
 class App extends React.Component {
 	constructor() {
 		super()
 		this.state = {	//two states, any component that has state while use this.state, it describes the App
-			robots: robots,
+			robots: [],
 			searchfield: ''
 		}	//react renders and uses these states as props
+	}
+
+	componentDidMount() {
+		this.setState( { robots: robots});
+		console.log("check");
 	}
 
 	onSearchChange = (event) => {
