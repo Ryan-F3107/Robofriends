@@ -1,10 +1,10 @@
-import React from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import Scroll from './Scroll';
+import React, {Component} from 'react';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
 	constructor() {
 		super()
 		this.state = {	//two states, any component that has state while use this.state, it describes the App
