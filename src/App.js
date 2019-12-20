@@ -1,7 +1,6 @@
 import React from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
-import {robots} from './robots';
 import './App.css';
 
 class App extends React.Component {
@@ -14,9 +13,10 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState( { robots: robots});
-		console.log("check");
-	}
+		fetch('https://jsonplaceholder.typicode.com/users') //fetch comes with all browsers and makes request to servers
+			.then(response => response.json()) //converts response into json
+			.then(users => this.setState({robots: users})); //info about robots are now recieved from the website 
+	}//goes to website 
 
 	onSearchChange = (event) => {
 		this.setState({ searchfield: event.target.value})	//anytime we want to change state in React
@@ -27,13 +27,18 @@ class App extends React.Component {
 		const filteredRobots = this.state.robots.filter(robot =>{ // A new array is basically created
 			return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase()) //if the robot includes anything in the seach box
 		})
-		return (
+		if (this.state.robots.length === 0) {
+			return <h1 className ='tc'>Loading</h1>
+		}
+		else{
+			return (
 			<div className='tc'>
 				<h1 className = 'f1'>RoboFriends</h1>
 				<SearchBox searchChange={this.onSearchChange}/>
 				<CardList robots={filteredRobots}/>
 			</div>
 		);
+		}
 	}
 }
 
