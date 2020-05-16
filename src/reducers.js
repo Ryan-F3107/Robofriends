@@ -1,6 +1,6 @@
 import { CHANGE_SEARCH_FIELD } from './constant.js';
 const initialState = {
-	searchField: ''
+	searchfield: ''
 }
 //Now we create a reducer that outputs a state
 //actions are just objects that we are returning 

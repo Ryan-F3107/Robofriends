@@ -20,3 +20,9 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// Info about Connect from react-redux
+//connect function from redux is optomised to avoid using store.subscribe.
+//
+// Information on Provider
+//It passes the store to the components
