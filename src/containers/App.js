@@ -8,7 +8,7 @@ import './App.css';
 
 import {setSearchField} from '../action';
 //searchfield is going to be used as props for the app component is going to come from state.searchRobots.searchfield in reducer.js
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {	//State has only one field
 		searchfield: state.setSearchField//told what state to listen to and send as props
 	}
@@ -43,7 +43,7 @@ class App extends Component {
 		const { robots } = this.state;
 		const {searchfield, onSearchChange} = this.props;
 		const filteredRobots = robots.filter(robot =>{ // A new array is basically created
-			return robot.name.toLowerCase().includes(searchfield.toLowerCase()); //if the robot includes anything in the seach box
+			return robots.name.toLowerCase().includes(searchfield.toLowerCase()); //if the robot includes anything in the seach box
 		})
 		if (this.state.robots.length === 0) {
 			return <h1 className ='tc'>Loading</h1>
