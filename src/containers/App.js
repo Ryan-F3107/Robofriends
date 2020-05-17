@@ -43,7 +43,7 @@ class App extends Component {
 		const { robots } = this.state;
 		const {searchfield, onSearchChange} = this.props;
 		const filteredRobots = robots.filter(robot =>{ // A new array is basically created
-			return robots.name.toLowerCase().includes(searchfield.toLowerCase()); //if the robot includes anything in the seach box
+			return robot.name.toLowerCase().includes(searchfield.toLowerCase()); //if the robot includes anything in the seach box
 		})
 		if (this.state.robots.length === 0) {
 			return <h1 className ='tc'>Loading</h1>
