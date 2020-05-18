@@ -10,14 +10,14 @@ import {setSearchField} from '../action';
 //searchfield is going to be used as props for the app component is going to come from state.searchRobots.searchfield in reducer.js
 const mapStateToProps = (state) => {
 	return {	//State has only one field
-		searchfield: state.setSearchField//told what state to listen to and send as props
+		searchField: state.searchField//told what state to listen to and send as props
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onSearchChange: (event) => dispatch(setSearchField(event.target.value))
-	}
+	}	//event is the input
 }
 
 class App extends Component {
@@ -34,16 +34,13 @@ class App extends Component {
 			.then(users => this.setState({robots: users})); //info about robots are now recieved from the website 
 	}//goes to website 
 
-	// onSearchChange = (event) => {
-	// 	this.setState({ searchfield: event.target.value})	//anytime we want to change state in React
-		
-	// }
-
 	render() {
 		const { robots } = this.state;
-		const {searchfield, onSearchChange} = this.props;
-		const filteredRobots = robots.filter(robot =>{ // A new array is basically created
-			return robot.name.toLowerCase().includes(searchfield.toLowerCase()); //if the robot includes anything in the seach box
+		const {searchField, onSearchChange} = this.props;
+		console.log(searchField);
+		// A new array is basically created
+		const filteredRobots = robots.filter(robot =>{
+			return robot.name.toLowerCase().includes(searchField.toLowerCase()); //if the robot includes anything in the seach box
 		})
 		if (this.state.robots.length === 0) {
 			return <h1 className ='tc'>Loading</h1>
