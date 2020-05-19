@@ -1,3 +1,7 @@
+## The Why of this project.
+This small project was done while going through The Complete Web Developer in 2020: Zero to Mastery by Andrei Neagoie.
+This project was created and developed using React and Redux with css & javascript.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 RoboFriends
