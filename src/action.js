@@ -16,6 +16,7 @@ export const setSearchField = (text) => {
 }	//it will take text and return an object and send a text to user as payload
 // () used, it significants returning something.
 
+// We return a function, and the dispatch is used to call the actions.
 // when we get the users we either have a SUCCESS or a FAILED.
 export const requestRobots = () => (dispatch) => {	//a higher functions
 	dispatch({ type: REQUEST_ROBOTS_PENDING});
