@@ -29,7 +29,6 @@ const instialStateRobots = {
 	error: ''
 }
 
-
 export const requestRobots = (state=instialStateRobots, action={}) => {
 	switch(action.type) {
 		case REQUEST_ROBOTS_PENDING:
