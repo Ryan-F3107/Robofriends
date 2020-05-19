@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import {searchRobots} from './reducers';
 import 'tachyons'; //Helps with CSS
 //import {robots} from './robots';
+
+const logger = createLogger();
 // the store can be accessed and passed to App
-const store = createStore(searchRobots);	//we want to combine all the reducer into rootreducer
+const store = createStore(searchRobots, applyMiddleware(logger));	//we want to combine all the reducer into rootreducer
 
 ReactDOM.render(
 				<Provider store={store}> 
